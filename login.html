@@ -305,7 +305,6 @@
             this.remove();
           });
         });
-		$("button.auth0-lock-passwordless-submit").removeAttr("disabled");
       });
     }
     function customizeSubmitButton() {
@@ -331,10 +330,9 @@
           $("div.auth0-lock-submit-container").show();
           $(".auth0-lock-input-username input").focus();
         }
-        $("button.auth0-lock-passwordless-submit").on("click", function() {
-		    $(this).attr("disabled", "disabled");
-			sendEmail();
-	    });
+        $("button.auth0-lock-passwordless-submit").one('click', function() {
+		    sendEmail();
+        });
 	    $("input[name=passwordlessEmail]").keydown(function(event) {
           if (event.keyCode == 13) {
             event.preventDefault();
