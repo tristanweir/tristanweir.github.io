@@ -264,6 +264,15 @@
     }
     function sendEmail() {
       var email = $("input[name=passwordlessEmail]").val();
+	  
+	  //in case of an empty input field, .val() returns undefined
+	  //re-enable the submit button because the auth0.requestMagicLink won't execute normally
+	  if (email == undefined) {
+	        if ($("button.auth0-lock-passwordless-submit").is(':disabled')) {
+	            $("button.auth0-lock-passwordless-submit").prop("disabled", false);
+	        }
+	    }
+	  
       var authParams = { "state": getParameterByName("state"), "nonce": getParameterByName("nonce") };
       auth0.requestMagicLink({ email: email , send: 'link', authParams: authParams}, function(err) {
         var message;
