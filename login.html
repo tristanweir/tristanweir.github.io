@@ -336,7 +336,7 @@
         }
         $("button.auth0-lock-passwordless-submit").on("click", function() {
 		    //prevent the submit button from being clicked twice until the sendEmail function re-enables it
-		    $(this).prop("disabled", true);
+		    $("button.auth0-lock-passwordless-submit").prop("disabled", true);
 			sendEmail();
 	    });
         $("input[name=passwordlessEmail]").keydown(function(event) {
