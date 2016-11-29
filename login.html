@@ -304,12 +304,12 @@
           $(".auth0-lock-content > .auth0-lock-passwordless-confirmation").slideUp(400, function() {
             this.remove();
           });
+		  	  //allow the submit button to be clicked again, if previously disabled
+	    if ($("button.auth0-lock-passwordless-submit").is(':disabled')) {
+	        $("button.auth0-lock-passwordless-submit").prop("disabled", false);
+	    }
         });
       });
-	  //allow the submit button to be clicked again, if previously disabled
-	  if ($("button.auth0-lock-passwordless-submit").is(':disabled')) {
-	      $("button.auth0-lock-passwordless-submit").prop("disabled", false);
-	  }
     }
     function customizeSubmitButton() {
       if ($("div.auth0-lock-submit-container").length == 0) {
