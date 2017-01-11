@@ -439,7 +439,7 @@
         $("button.auth0-lock-ldap-button").slideUp();
         $(".auth-lock-social-buttons-pane").slideUp();
         $("button.auth0-lock-passwordless-button").slideUp();
-        $("input[name=passwordlessEmail]").clear();    //starting the LDAP flow clears the passwordless e-mail input, preventing errors
+        $("input[name=passwordlessEmail]").reset();    //starting the LDAP flow clears the passwordless e-mail input, preventing errors
         $(".auth0-lock-input-email input").focus();
       });
       $("button.auth0-lock-passwordless-button").click(function() {
